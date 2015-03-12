@@ -27,9 +27,9 @@
     "should": "^4.6.3"
   },
   "dependencies": {
-    "sand": "^0.1.8",
+    "sand": "^1.0.0",
     "lockd": "^0.1.0",
     "lodash": "^3.1.0",
-    "sand-grain": "^0.1.2"
+    "sand-grain": "^1.0.0"
   }
 }

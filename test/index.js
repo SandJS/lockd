@@ -2,13 +2,14 @@
  * Created by ajaso on 2/4/15.
  */
 
+"use strict";
+
+var _ = require('lodash');
 var lockdConfig = {tcp: '127.0.0.1:9999'};
 
-var app = require('sand')({appPath: __dirname + '/..', log: '*'})
+var app = new (require('sand'))({appPath: __dirname + '/..', log: '*'})
   .use(require('..'), {all: lockdConfig})
-  .start(function() {
-    return this;
-  });
+  .start();
 
 var server;
 
@@ -20,8 +21,9 @@ describe('sand.lockd', function() {
     server = require('lockd').listen(lockdConfig)
   });
 
-  after(function() {
+  after(function(done) {
     server.close();
+    app.shutdown(done);
   });
 
   describe('acquire()', function() {

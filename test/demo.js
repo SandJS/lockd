@@ -3,7 +3,7 @@
  */
 
 var sand = require('sand');
-sand({appPath: __dirname + '/..', log: '*'})
+new sand({appPath: __dirname + '/..', log: '*'})
   .use(require('..'))
   .start();
 
